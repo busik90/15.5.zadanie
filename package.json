@@ -1,0 +1,26 @@
+{
+  "name": "14.8.Wyszukiwarka_gifow",
+  "version": "1.0.0",
+  "description": "Aplikacja do wyszukiwania gifów ze strony giphy.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server"
+  },
+  "keywords": [
+    "gif",
+    "search-app",
+    "React",
+    "JSX",
+    "Babel"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pawelbus/14.8.zadanie.git"
+  }
+}
