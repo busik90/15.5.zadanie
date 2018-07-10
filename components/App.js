@@ -12,33 +12,38 @@ App = React.createClass({
       loading: true
     });
 
-    this.getGif(searchingText, function(gif) {
+    this.getGif(searchingText)
+    .then(gif => {
       this.setState({
         loading: false,
         gif: gif,
         searchingText: searchingText
       });
-    }.bind(this));
+    })
+    .catch(error => alert(`Coś poszło nie tak: ${error}`));
   },
 
   getGif: function(searchingText, callback) {
-    var url = 'http://api.giphy.com/v1/gifs/search?q=' + searchingText + '&api_key=dc6zaTOxFJmzC&limit=1';
-    var xhr = new XMLHttpRequest();
+    return new Promise( function(resolve, reject) {
+      const url = `http://api.giphy.com/v1/gifs/search?q=${searchingText}&api_key=dc6zaTOxFJmzC`,
+            xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url);
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        var data = JSON.parse(xhr.responseText).data;
-        var gif = {
-          url: data[0].images.original.url,
-          sourceUrl: data[0].url
-        };
-        console.log(data);
-
-        callback(gif);
-      }
-    };
-    xhr.send();
+      xhr.open(`GET`, url);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText).data,
+                gif = {
+                  url: data[0].images.original.url,
+                  sourceUrl: data[0].url
+                };
+          console.log(data);
+  
+          resolve(gif);
+        }
+      };
+      xhr.onerror = () => reject(new Error(`XMLHttpRequest Error: ${this.statusText}`));
+      xhr.send();
+    });
   },
 
   render: function() {
