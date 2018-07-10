@@ -1,7 +1,7 @@
 {
-  "name": "14.8.Wyszukiwarka_gifow",
+  "name": "15.5.Wyszukiwarka_gifow_Refaktoryzacja",
   "version": "1.0.0",
-  "description": "Aplikacja do wyszukiwania gifów ze strony giphy.com",
+  "description": "Aplikacja do wyszukiwania gifów napisana z wykorzystaniem Promise",
   "main": "index.js",
   "scripts": {
     "start": "http-server"
@@ -11,7 +11,9 @@
     "search-app",
     "React",
     "JSX",
-    "Babel"
+    "Babel",
+    "ES6",
+    "Promise"
   ],
   "author": "",
   "license": "ISC",
@@ -21,6 +23,6 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/pawelbus/14.8.zadanie.git"
+    "url": "https://github.com/pawelbus/15.5.zadanie.git"
   }
 }
